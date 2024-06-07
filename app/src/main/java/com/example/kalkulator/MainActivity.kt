@@ -30,17 +30,17 @@ class MainActivity : AppCompatActivity() {
 
             if (liczba1 != null && liczba2 != null) {
                 val wynik = when (operation) {
-                    "Dodawanie" -> liczba1 + liczba2
-                    "Odejmowanie" -> liczba1 - liczba2
-                    "Mnożenie" -> liczba1 * liczba2
+                    "Wybór akcji: " -> "Witaj, wybierz akcje aby skorzystać z kalkulatora"
+                    "Dodawanie" -> "Wynik: " + (liczba1 + liczba2).toString()
+                    "Odejmowanie" -> "Wynik: " + (liczba1 - liczba2).toString()
+                    "Mnożenie" -> "Wynik: " + (liczba1 * liczba2).toString()
                     "Dzielenie" -> {
-                        if (liczba2 != 0.0) liczba1 / liczba2 else {
-                            wynikTxt.text = "Nie można dzielić przez zero"
-                        }
+                        if (liczba2 != 0.0) "Wynik: " + (liczba1 / liczba2).toString()
+                        else "Nie można dzielić przez zero"
                     }
                     else -> 0.0
                 }
-                wynikTxt.text = "Wynik: $wynik"
+                wynikTxt.text = wynik.toString()
             } else {
                 wynikTxt.text = "Nieprawidłowe dane"
             }
